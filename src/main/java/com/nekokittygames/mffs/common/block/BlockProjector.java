@@ -60,7 +60,7 @@ public class BlockProjector extends BlockMFFSBase {
 
 		@Override
 		public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-			TileEntityProjector proj= (TileEntityProjector) worldIn.getTileEntity(pos);
+			TileEntityProjector proj = (TileEntityProjector) worldIn.getTileEntity(pos);
 			int type=0;
 			if(proj.get_type()!=null)
 				type=proj.get_type().getForceFieldModuleType();

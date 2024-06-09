@@ -105,7 +105,7 @@ public class TileEntityAdvSecurityStation extends TileEntityMachines {
 	}
 
 	public void checkSlots() {
-		if (getStackInSlot(0) != null) {
+		if (!getStackInSlot(0).isEmpty()) {
 			if (getStackInSlot(0).getItem() == ModItems.PERSONAL_ID) {
 				ItemCardPersonalID Card = (ItemCardPersonalID) getStackInSlot(0)
 						.getItem();
@@ -129,7 +129,7 @@ public class TileEntityAdvSecurityStation extends TileEntityMachines {
 
 		}
 
-		if (getStackInSlot(39) != null && getStackInSlot(38) != null) {
+		if (!getStackInSlot(39).isEmpty() && !getStackInSlot(38).isEmpty()) {
 			if (getStackInSlot(38).getItem() instanceof ItemCardEmpty
 					&& getStackInSlot(39).getItem() instanceof ItemCardPersonalID) {
 

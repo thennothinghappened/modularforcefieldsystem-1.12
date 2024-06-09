@@ -31,20 +31,14 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public enum ProjectorTyp {
 
-	wall(1, "Wall", "AA AA BB ", ModItems.MODULE_WALL,
-			true), deflector(2, "Deflector", "AAAABAAAA",
-			ModItems.MODULE_DEFLECTOR, true), tube(3,
-			"Tube", "AAA B AAA", ModItems.MODULE_TUBE,
-			false), cube(4, "Cube", "B B A B B",
-			ModItems.MODULE_CUBE, false), sphere(5,
-			"Sphere", " B BAB B ",
-			ModItems.MODULE_SPHERE, false), containment(
-			6, "Containment", "BBBBABBBB",
-			ModItems.MODULE_CONTAINMENT, false), AdvCube(
-			7, "Adv. Cube", "AAAACAAAA",
-			ModItems.MODULE_ADVCUBE, false), diagonallywall(
-			8, "Diagonal Wall", "A A B A A",
-			ModItems.MODULE_DIAGONAL_WALL, true);
+	wall(1, "Wall", "AA AA BB ", ModItems.MODULE_WALL, true),
+	deflector(2, "Deflector", "AAAABAAAA", ModItems.MODULE_DEFLECTOR, true),
+	tube(3, "Tube", "AAA B AAA", ModItems.MODULE_TUBE, false),
+	cube(4, "Cube", "B B A B B", ModItems.MODULE_CUBE, false),
+	sphere(5, "Sphere", " B BAB B ", ModItems.MODULE_SPHERE, false),
+	containment(6, "Containment", "BBBBABBBB", ModItems.MODULE_CONTAINMENT, false),
+	AdvCube(7, "Adv. Cube", "AAAACAAAA", ModItems.MODULE_ADVCUBE, false),
+	diagonallywall(8, "Diagonal Wall", "A A B A A", ModItems.MODULE_DIAGONAL_WALL, true);
 
 	public String displayName;
 	public String recipe;

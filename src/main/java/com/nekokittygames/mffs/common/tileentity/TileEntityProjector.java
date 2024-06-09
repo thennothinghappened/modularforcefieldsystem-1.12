@@ -395,7 +395,7 @@ public class TileEntityProjector extends TileEntityFEPoweredMachine implements
 						true)) {
 			for (PointXYZ png : field_def) {
 
-				if (world.getChunkFromBlockCoords(png.pos).isLoaded()) {
+				if (world.getChunk(png.pos).isLoaded()) {
 
 					TileEntity tileEntity = world.getTileEntity(png.pos);
 
@@ -628,7 +628,7 @@ public class TileEntityProjector extends TileEntityFEPoweredMachine implements
 
 				PointXYZ png = ffb.getPoint();
 
-				if (world.getChunkFromBlockCoords(png.pos).isLoaded()) {
+				if (world.getChunk(png.pos).isLoaded()) {
 					if (!ffb.isEmpty()) {
 						if (ffb.getProjectorID() == getDeviceID()) {
 							if (hasOption(

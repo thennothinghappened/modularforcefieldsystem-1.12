@@ -36,6 +36,7 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 public abstract class ModuleBase extends ItemMFFSBase {
@@ -89,22 +90,32 @@ public abstract class ModuleBase extends ItemMFFSBase {
 		TileEntity tileEntity = world.getTileEntity(pos);
 
 		if (!world.isRemote) {
-			if (tileEntity instanceof IModularProjector) {
+			if (tileEntity instanceof TileEntityProjector) {
+
+				final TileEntityProjector projector = (TileEntityProjector) tileEntity;
+
 				if (!SecurityHelper.isAccessGranted(tileEntity, player,
 						world, SecurityRight.EB)) {
 					return EnumActionResult.FAIL;
 				}
 
-				if (((IModularProjector) tileEntity).getStackInSlot(1) == null) {
-					((IModularProjector) tileEntity).setInventorySlotContents(
-							1, player.getActiveItemStack().splitStack(1));
-					Functions.ChattoPlayer(player, "projectorModule.installed", ProjectorTyp
-							.TypfromItem(((IModularProjector) tileEntity)
-									.getStackInSlot(1)
-									.getItem()).displayName);
+				if (projector.getStackInSlot(1).isEmpty()) {
 
-					((TileEntityProjector) tileEntity).checkslots();
+					final ItemStack itemStack = player.getHeldItem(hand).splitStack(1);
+
+					projector.setInventorySlotContents(1, itemStack);
+
+					Functions.ChattoPlayer(
+						player,
+						"projectorModule.installed",
+						Optional.ofNullable(ProjectorTyp.TypfromItem(itemStack.getItem()))
+							.map(type -> type.displayName)
+							.orElse("[[Unknown Module Name!!]]")
+					);
+
+					projector.checkslots();
 					return EnumActionResult.SUCCESS;
+
 				} else {
 					Functions.ChattoPlayer(player, "projectorModule.notEmpty");
 					return EnumActionResult.FAIL;

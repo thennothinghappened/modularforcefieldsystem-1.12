@@ -248,7 +248,7 @@ public class TileEntityControlSystem extends TileEntityMachines implements
 	}
 
 	private TileEntityMachines getTargetMaschine(int slot) {
-		if (getStackInSlot(slot) != null)
+		if (!getStackInSlot(slot).isEmpty())
 			if (getStackInSlot(slot).getItem() instanceof ItemCardDataLink) {
 				int DeviceID = 0;
 				NBTTagCompound tag = NBTTagCompoundHelper

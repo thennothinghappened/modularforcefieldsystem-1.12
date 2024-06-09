@@ -76,7 +76,7 @@ public class GraphicButton extends GuiButton {
 						16), 0, this.width, this.height, SWITCH_MODE_TEXTURE_SIZE);
 			}
 			if (tileEntity instanceof TileEntityControlSystem) {
-				if (((TileEntityControlSystem) tileEntity).getStackInSlot(1) != null) {
+				if (!((TileEntityControlSystem) tileEntity).getStackInSlot(1).isEmpty()) {
 					if (typ == 1) {
 						boolean active = ((TileEntityControlSystem)tileEntity).getRemoteActive();
 

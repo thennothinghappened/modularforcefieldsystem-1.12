@@ -139,7 +139,7 @@ public class GuiControlSystem extends GuiContainer {
 				15, 30, 0x404040);
 		fontRenderer.drawString("Type:  " + ControlSystem.getRemoteDeviceTyp(),
 				15, 45, 0x404040);
-		if (ControlSystem.getStackInSlot(1) != null) {
+		if (!ControlSystem.getStackInSlot(1).isEmpty()) {
 
 			RenderHelper.enableGUIStandardItemLighting();
 			itemRender.renderItemIntoGUI(
